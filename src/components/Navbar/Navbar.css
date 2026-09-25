@@ -1,0 +1,161 @@
+/* ── Wrapper: sits at top, centers the pill ───────── */
+.nav-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+  padding: 0 1rem;
+}
+
+/* ── The dark pill ────────────────────────────────── */
+.pill-nav {
+  pointer-events: all;
+  background: #1c1c1e;
+  border-radius: 999px;
+  padding: 0 clamp(1rem, 3vw, 2.4rem);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.30);
+  max-width: 100%;
+}
+
+/* ── Nav list ─────────────────────────────────────── */
+.pill-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0; padding: 0;
+}
+
+/* ── Each item ────────────────────────────────────── */
+.pill-item { position: relative; }
+
+.pill-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 0.5rem clamp(0.6rem, 1.5vw, 1.1rem);
+  font-size: clamp(0.62rem, 1.1vw, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #888;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+.pill-item.active .pill-link { color: #ffffff; }
+.pill-link:hover              { color: #ccc; }
+
+/* ── Glowing cyan underline indicator ─────────────── */
+.glow-bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: #2563EB;
+  box-shadow:
+    0 0 6px #2563EB,
+    0 0 14px #2563EBaa,
+    0 0 28px #2563EB55;
+  animation: barFadeIn 0.25s ease both;
+}
+@keyframes barFadeIn {
+  from { opacity: 0; transform: scaleX(0.4); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+/* ── Mobile hamburger ─────────────────────────────── */
+.hamburger {
+  display: none;
+  pointer-events: all;
+  position: absolute;
+  right: 1rem;
+  flex-direction: column;
+  gap: 5px;
+  background: #1c1c1e;
+  border: none;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.hamburger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile dropdown ──────────────────────────────── */
+.mobile-menu {
+  pointer-events: all;
+  position: absolute;
+  top: 68px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1c1c1e;
+  border-radius: 20px;
+  padding: 0.8rem 0;
+  list-style: none;
+  min-width: 200px;
+  width: 90vw;
+  max-width: 320px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  animation: dropIn 0.2s ease both;
+}
+@keyframes dropIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+.mobile-link {
+  display: block;
+  padding: 0.75rem 1.8rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mobile-link:hover,
+.mobile-link.active { color: #fff; }
+
+/* ── Toggle: only visible beside pill on desktop ──── */
+.toggle-desktop { pointer-events: all; }
+
+/* ── Mobile toggle row inside dropdown ───────────── */
+.mobile-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1.8rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin-top: 0.4rem;
+}
+.mobile-toggle-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #888;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .pill-nav        { display: none; }
+  .toggle-desktop  { display: none; }   /* hide from top bar on mobile */
+  .hamburger       { display: flex; }
+}
+

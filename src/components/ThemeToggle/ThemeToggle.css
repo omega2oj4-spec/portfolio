@@ -1,0 +1,39 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #1c1c1e;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  transition: background 0.3s ease;
+  pointer-events: all;
+  flex-shrink: 0;
+}
+
+/* In light mode, the toggle pill stays dark to contrast the page */
+[data-theme='light'] .theme-toggle { background: #1c1c1e; }
+[data-theme='dark']  .theme-toggle { background: #2a2a38; }
+
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #555;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+/* Active icon: bright white with a subtle highlight circle */
+.toggle-icon.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.toggle-icon:hover:not(.active) {
+  color: #aaa;
+}

@@ -1,0 +1,175 @@
+.about {
+  padding: var(--section-py) 0;
+  background: var(--bg2); /* Light background like the image */
+}
+
+/* Header Row */
+.about-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+.about-header-text {
+  max-width: 600px;
+}
+.about-header-text h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text);
+  min-height: 1.2em; /* Keeps height stable while typing */
+}
+.abt-cursor {
+  font-weight: 400;
+  color: #2563EB;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.about-header-text p {
+  color: var(--text-muted);
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.7;
+}
+.top-btn {
+  /* Ensure the top button doesn't shrink and stays top right */
+  flex-shrink: 0;
+  background: #111827; /* Dark button matching the image top-right */
+  color: #fff;
+  border-color: #111827;
+  padding: 0.75rem 2rem;
+  box-shadow: none;
+}
+.top-btn:hover {
+  background: #2563EB;
+  border-color: #2563EB;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+}
+[data-theme='dark'] .top-btn {
+  background: #ffffff;
+  color: #111827;
+  border-color: #ffffff;
+}
+[data-theme='dark'] .top-btn:hover {
+  background: #2563EB;
+  color: #ffffff;
+  border-color: #2563EB;
+}
+
+/* Grid Layout */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Card Styling */
+.benefit-card {
+  background: var(--card); /* Light grey/white for inactive */
+  border-radius: 20px;
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+
+.b-icon {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.benefit-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.benefit-card p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  flex-grow: 1; /* Pushes button to bottom */
+  transition: color 0.3s ease;
+}
+
+/* Inactive Card Button */
+.b-btn {
+  align-self: flex-start;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: #111827;
+  color: #fff;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+.b-btn:hover {
+  background: #2563EB;
+  border-color: #2563EB;
+  transform: scale(1.05);
+}
+[data-theme='dark'] .b-btn {
+  background: var(--bg2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+[data-theme='dark'] .b-btn:hover {
+  background: #2563EB;
+  color: #fff;
+  border-color: #2563EB;
+}
+
+/* --- HOVER STATE FOR ALL CARDS --- */
+.benefit-card:hover {
+  background: #2563EB; /* Primary blue to fit strict theme */
+  border-color: #2563EB;
+  box-shadow: 0 10px 30px rgba(37,99,235, 0.25);
+  transform: translateY(-5px);
+}
+.benefit-card:hover .b-icon,
+.benefit-card:hover h3 {
+  color: #ffffff;
+}
+.benefit-card:hover p {
+  color: rgba(255, 255, 255, 0.85);
+}
+.benefit-card:hover .b-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-color: transparent;
+}
+.benefit-card:hover .b-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-header {
+    flex-direction: column;
+    text-align: left;
+    gap: 1.5rem;
+  }
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}

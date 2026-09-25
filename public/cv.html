@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oladipo Taiwo – CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #e5e5e5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* ── Page wrapper ────────────────────────────── */
+    .cv {
+      width: 794px;          /* A4 width at 96dpi */
+      min-height: 1123px;    /* A4 height */
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* LEFT COLUMN                                  */
+    /* ════════════════════════════════════════════ */
+    .left {
+      background: #2563EB;   /* deep purple — matches portfolio primary */
+      color: #fff;
+      padding: 0 0 2.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Hero strip (photo + name) ── */
+    .left-hero {
+      background: #1d4ed8;
+      padding: 2rem 1.6rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 4px solid rgba(255,255,255,.15);
+    }
+    .photo-ring {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,.6);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .photo-ring img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .left-hero h1 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1.2;
+      text-align: center;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+    .left-hero .role {
+      font-size: .85rem;
+      font-weight: 400;
+      letter-spacing: .2em;
+      opacity: .8;
+      text-align: center;
+    }
+
+    /* ── Left sections ── */
+    .left-section { padding: 1.6rem 1.6rem 0; }
+
+    .left-section h2 {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: .9rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      opacity: .9;
+    }
+    .left-section h2 .icon { font-size: 1rem; }
+
+    /* About */
+    .left-section p {
+      font-size: .78rem;
+      line-height: 1.7;
+      opacity: .85;
+    }
+
+    /* Contact */
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .contact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .55rem;
+      font-size: .78rem;
+      opacity: .9;
+      line-height: 1.4;
+    }
+    .contact-list li .ci { font-size: .95rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* Skills */
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .skill-item { font-size: .78rem; opacity: .9; }
+    .skill-bar-bg {
+      height: 5px;
+      background: rgba(255,255,255,.25);
+      border-radius: 99px;
+      margin-top: 3px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: #fff;
+      border-radius: 99px;
+    }
+
+    /* Language */
+    .lang-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+    .lang-list li {
+      font-size: .78rem;
+      opacity: .9;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .lang-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: rgba(255,255,255,.7);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .left-divider {
+      height: 1px;
+      background: rgba(255,255,255,.15);
+      margin: 1.4rem 1.6rem 0;
+    }
+
+    /* ════════════════════════════════════════════ */
+    /* RIGHT COLUMN                                 */
+    /* ════════════════════════════════════════════ */
+    .right {
+      background: #fff;
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    /* ── Section heading ── */
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: 1.1rem;
+    }
+    .section-head .s-icon {
+      width: 32px; height: 32px;
+      background: #2563EB;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .section-head h2 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #1e1e2e;
+    }
+
+    /* ── Timeline entry ── */
+    .entries { display: flex; flex-direction: column; gap: 1.2rem; }
+    .entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .4rem .8rem;
+      padding-left: 1rem;
+      border-left: 3px solid #2563EB;
+      position: relative;
+    }
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: -6px; top: 4px;
+      width: 9px; height: 9px;
+      background: #2563EB;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+    .entry-period {
+      grid-column: 1 / -1;
+      font-size: .72rem;
+      font-weight: 700;
+      color: #2563EB;
+      letter-spacing: .06em;
+    }
+    .entry-title {
+      font-size: .82rem;
+      font-weight: 700;
+      color: #1e1e2e;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+    .entry-sub {
+      font-size: .78rem;
+      color: #6b7280;
+      margin-top: .1rem;
+    }
+    .entry-grade {
+      font-size: .78rem;
+      font-weight: 600;
+      color: #2563EB;
+    }
+    .entry-bullets {
+      grid-column: 1 / -1;
+      padding-left: 1rem;
+      margin-top: .3rem;
+    }
+    .entry-bullets li {
+      font-size: .76rem;
+      color: #374151;
+      line-height: 1.55;
+      margin-bottom: .2rem;
+    }
+
+    /* ── Print ────────────────────────────────── */
+    @media print {
+      body { background: none; padding: 0; }
+      .cv  { box-shadow: none; width: 100%; min-height: 100vh; }
+    }
+
+    /* ── Mobile scale-down ───────────────────── */
+    @media (max-width: 820px) {
+      body { padding: .5rem; }
+      .cv  { transform-origin: top left; transform: scale(.96); }
+    }
+    @media (max-width: 680px) {
+      .cv {
+        grid-template-columns: 1fr;
+        width: 100%;
+        transform: none;
+      }
+      .left-hero { flex-direction: row; text-align: left; }
+      .left-hero h1 { text-align: left; }
+      .left-hero .role { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+<div class="cv">
+
+  <!-- ════ LEFT COLUMN ════ -->
+  <aside class="left">
+
+    <div class="left-hero">
+      <div class="photo-ring">
+        <img src="/profile.jpg" alt="Oladipo Taiwo" />
+      </div>
+      <div>
+      <h1>Oladipo Taiwo</h1>
+        <p class="role">Full-Stack Developer</p>
+      </div>
+    </div>
+
+    <!-- About Me -->
+    <div class="left-section" style="margin-top:1.4rem">
+      <h2><span class="icon">👤</span> About Me</h2>
+      <p>
+        Passionate Full-Stack Developer based in Nigeria with hands-on
+        experience building high-performance web apps using React and
+        Node.js. I thrive on turning complex problems into clean,
+        elegant solutions that deliver real impact.
+      </p>
+    </div>
+
+    <div class="left-divider"></div>
+
+    <!-- Contact -->
+    <div class="left-section">
+      <h2><span class="icon">📋</span> Contact</h2>
+      <ul class="contact-list">
+        <li><span class="ci">📞</span> +2348037664198</li>
+        <li><span class="ci">✉️</span> omega2oj4@gmail.com</li>
+        <li><span class="ci">🔗</span> github.com/omega2oj4-spec</li>
+        <li><span class="ci">📍</span> Nigeria</li>
+      </ul>
+    </div>
+
+    <div class="left-divider"></div>
+
+    <!-- Skills -->
+    <div class="left-section">
+      <h2><span class="icon">⚙️</span> Skills</h2>
+      <ul class="skill-list">
+        <li class="skill-item">
+          React.js
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </li>
+        <li class="skill-item">
+          Node.js
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:82%"></div></div>
+        </li>
+        <li class="skill-item">
+          JavaScript / TypeScript
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div>
+        </li>
+        <li class="skill-item">
+          HTML &amp; CSS
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div>
+        </li>
+        <li class="skill-item">
+          Next.js
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:78%"></div></div>
+        </li>
+        <li class="skill-item">
+          Git &amp; GitHub
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- ════ RIGHT COLUMN ════ -->
+  <main class="right">
+
+    <!-- Education -->
+    <div>
+      <div class="section-head">
+        <div class="s-icon">🎓</div>
+        <h2>Education</h2>
+      </div>
+      <div class="entries">
+
+        <div class="entry">
+          <span class="entry-period">(2025 &ndash; 2028)</span>
+          <div>
+            <div class="entry-title">Full Stack Developer</div>
+            <div class="entry-sub">Aptech-Ibadan</div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div>
+      <div class="section-head">
+        <div class="s-icon">💼</div>
+        <h2>Experience</h2>
+      </div>
+      <div class="entries">
+
+        <div class="entry">
+          <span class="entry-period">(2024 &ndash; Present)</span>
+          <div>
+            <div class="entry-title">Frontend Developer Intern</div>
+            <div class="entry-sub">Aptech</div>
+          </div>
+          <ul class="entry-bullets">
+            <li>Built and maintained React-based web applications for 5+ clients</li>
+            <li>Reduced page load times by 40% through code splitting and lazy loading</li>
+            <li>Collaborated with UI/UX team to deliver pixel-perfect interfaces</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <span class="entry-period">(2024 &ndash; Present)</span>
+          <div>
+            <div class="entry-title">Full-Stack Developer (Freelance)</div>
+            <div class="entry-sub">Self-Employed &mdash; Remote</div>
+          </div>
+          <ul class="entry-bullets">
+            <li>Designed and developed 10+ full-stack projects for clients across Africa</li>
+            <li>Built REST APIs with Node.js &amp; Express integrated with MongoDB</li>
+            <li>Delivered e-commerce platforms, dashboards &amp; portfolio websites</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div>
+      <div class="section-head">
+        <div class="s-icon">🚀</div>
+        <h2>Projects</h2>
+      </div>
+      <div class="entries">
+
+        <div class="entry">
+          <span class="entry-period">E-Commerce Platform</span>
+          <div>
+            <div class="entry-sub">React, Node.js, MongoDB, Stripe</div>
+          </div>
+          <ul class="entry-bullets">
+            <li>Full-stack shop with cart, checkout, and payment integration</li>
+            <li>Admin dashboard with real-time order management</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <span class="entry-period">Crypto Dashboard</span>
+          <div>
+            <div class="entry-sub">React, CoinGecko API, Chart.js</div>
+          </div>
+          <ul class="entry-bullets">
+            <li>Real-time cryptocurrency tracking with live price charts</li>
+            <li>Supports 200+ coins with portfolio watchlist feature</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Floating Action Buttons -->
+<div class="fab-container">
+  <a href="/" class="fab-btn" aria-label="Go Back" title="Back to Portfolio">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5"/>
+      <polyline points="12 19 5 12 12 5"/>
+    </svg>
+  </a>
+
+  <button onclick="downloadPDF()" class="fab-btn" aria-label="Download CV" title="Download CV">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+  </button>
+</div>
+
+<style>
+  .fab-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 9999;
+  }
+  .fab-btn {
+    width: 54px;
+    height: 54px;
+    background: #111827;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+  .fab-btn:hover {
+    transform: scale(1.08);
+    background: #000;
+  }
+  @media print {
+    .fab-container { display: none !important; }
+  }
+</style>
+
+<!-- html2pdf for direct downloading -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  function downloadPDF() {
+    const element = document.querySelector('.cv');
+    const btn = document.querySelectorAll('.fab-btn')[1];
+    
+    // Show a loading spinner icon while generating the PDF
+    const originalContent = btn.innerHTML;
+    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>';
+    
+    const opt = {
+      margin:       0,
+      filename:     'Oladipo_Taiwo_CV.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true },
+      jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+      btn.innerHTML = originalContent;
+    });
+  }
+</script>
+</body>
+</html>
