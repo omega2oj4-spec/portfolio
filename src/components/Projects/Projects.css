@@ -1,4 +1,4 @@
-﻿.projects-section {
+.projects-section {
   padding: var(--section-py) 0;
   background: var(--card);
 }
@@ -11,6 +11,7 @@
   justify-content: center;
   margin-bottom: 2rem;
   width: 100%;
+  overflow: hidden;
 }
 
 .project-card {
@@ -171,4 +172,5 @@
 }
 .proj-link:hover::after {
   width: 100%;
+  overflow: hidden;
 }
